@@ -37,22 +37,3 @@ O escopo documentado limita-se a consulta e listagem, filtragem e exportação e
 | CT008 | Excluir arquivadas após filtro de tipo | [test_ct008_arquivadas_filtro_tipo.py](functional_tests/test_ct008_arquivadas_filtro_tipo.py) |
 | CT009 | Exportar ata selecionada em PDF | [test_ct009_exportar_pdf.py](functional_tests/test_ct009_exportar_pdf.py) |
 | CT010 | Confirmar correspondência entre seleção e PDF | [test_ct010_exportacao_ata_selecionada.py](functional_tests/test_ct010_exportacao_ata_selecionada.py) |
-
-## Organização
-
-```text
-bvapp-didatico/
-├── README.md
-├── pyproject.toml
-├── config/
-│   └── __init__.py
-├── functional_tests/
-│   ├── __init__.py
-│   └── test_ct001...test_ct010...py
-├── consulta_atas/
-│   ├── __init__.py
-│   └── README.md
-└── docs/
-    ├── requisitos.md
-    └── duvidas_stakeholders.md
-```
