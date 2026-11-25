@@ -1,36 +1,21 @@
-# Requisitos e rastreabilidade
+﻿# Requisitos e rastreabilidade
 
-## Identificação
+Projeto BVapp — Submódulo 01: Gestão de Contratos de Adesão.
+Fonte: contexto_consolidado_gestao_contratos.md fornecido pelo estudante, seções 4.1–4.4.
 
-- Projeto: BVapp.
-- Módulo: Gestão de Atas de Assembleia (#25283).
-- Feature: Consulta e Listagem de Atas (#25294).
-
-As relações CA–US abaixo são correspondências por conteúdo descritas na fonte consolidada; a feature informa que os seis itens são filhos, sem declarar relações CA–US específicas.
-
-| Requisito | Comportamento documentado | Cenários |
+| Requisito | Comportamentos | Cenários |
 |---|---|---|
-| Feature #25294, seção 1; CA01 #25349; US #25352 | Usuário com permissão visualiza atas geradas não marcadas como “Arquivadas”; cada item mostra título, data de criação, tipo de assembleia e status. | CT001, CT002, CT003 |
-| Feature #25294, seção 2; CA02 #25350; US #25353 | Disponibiliza filtro por intervalo de datas e por tipo Ordinária ou Extraordinária; mostra atas correspondentes, exclui arquivadas e apresenta os quatro campos de cada resultado. | CT004, CT005, CT006, CT007, CT008 |
-| Feature #25294, seção 3; CA03 #25351; US #25354 | Usuário com permissão seleciona uma ata, aciona exportar e obtém a ata selecionada em formato PDF. | CT009, CT010 |
+| RF06001 | Cadastrar título, corpo e status; variáveis Nome do Cooperado, CPF/CNPJ e Cotas; impedir exclusão com pelo menos um contrato gerado vinculado. | CT001 |
+| RF06002 | Selecionar cooperado cadastrado e modelo ativo; preencher variáveis automaticamente; bloquear geração e alertar identificando dados exigidos ausentes. | CT002 |
+| RF06003 | Listar nome do cooperado, data de geração e status; buscar por nome e CPF/CNPJ; editar template preservando contratos anteriores; editar contrato individual registrando nova versão. | CT003, CT004, CT005 |
+| RF06004 | Definir data limite durante geração; verificar diariamente todos os pendentes; configurar x e notificar cooperado quando faltarem x dias; upload PDF/JPG/PNG nos detalhes; após sucesso mudar para Assinado e encerrar alerta assim que o status mudar. | CT002 (data limite), CT006 |
 
-## Dados, atores e restrições documentadas
+## Dados e restrições
 
-- Consulta e filtragem: ator descrito como usuário com permissão para visualizar atas (ou atas geradas).
-- Exportação: usuário com permissão para exportar atas; a fonte não estabelece que essa permissão seja a mesma da consulta.
-- Tipos explicitamente oferecidos: Ordinária e Extraordinária.
-- Regra explícita na listagem, inclusive filtrada: excluir atas marcadas como “Arquivadas”.
-- Não há massa real de teste. Os valores dos cenários são fictícios e ilustrativos.
-- A exigência acadêmica sobre CRUD é condicional. Como esta feature não especifica criar, atualizar ou excluir atas, nenhum cenário introduz operações CRUD.
+Identificadores, nomes e cláusulas são fictícios. CPF/CNPJ e Cotas devem ser preparados em cadastro de teste com dados conhecidos. D é uma data limite escolhida e x um prazo configurado, sem valores fixos presumidos.
 
-## Massa ilustrativa compartilhada
+Os status de contrato são Pendente de Assinatura, Assinado e Distratado. Valores de status do modelo não foram enumerados; RF06002 exige modelo ativo.
 
-Quando os cenários precisam de exemplos, podem usar as atas fictícias abaixo; elas não representam registros reais nem acrescentam regras:
+No CT006, preparar múltiplos contratos pendentes com cooperados distintos e conferir a rotina para todos eles e a correspondência dos destinatários. Cada variação de upload utiliza um contrato independente com alerta em aberto.
 
-| Identificação ilustrativa | Título | Data de criação | Tipo | Status |
-|---|---|---|---|---|
-| ATA-001 | Assembleia Geral Ordinária — Exemplo | 2026-10-10 | Ordinária | Gerada |
-| ATA-002 | Assembleia Geral Extraordinária — Exemplo | 2026-10-15 | Extraordinária | Gerada |
-| ATA-003 | Assembleia Ordinária Arquivada — Exemplo | 2026-10-12 | Ordinária | Arquivada |
-
-As datas servem apenas como dados ilustrativos para demonstrar entradas. A fonte não determina qual campo de data alimenta o filtro, nem a semântica dos limites.
+A regra acadêmica de CRUD não autoriza acrescentar operações ausentes: CT001 reúne manutenção e impedimento de exclusão e referencia a edição detalhada no CT004; consulta do modelo e exclusão sem vínculo permanecem pendentes.

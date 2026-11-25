@@ -1,5 +1,5 @@
-[project]
+﻿[project]
 name = "bvapp-didatico"
 version = "0.1.0"
-description = "Documentação de cenários funcionais da feature Consulta e Listagem de Atas do BVapp"
+description = "Documentação de cenários funcionais de Gestão de Contratos de Adesão do BVapp"
 requires-python = ">=3.10"
